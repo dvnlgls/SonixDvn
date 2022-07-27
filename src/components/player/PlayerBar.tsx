@@ -37,6 +37,7 @@ import usePlayQueueHandler from '../../hooks/usePlayQueueHandler';
 import { apiController } from '../../api/controller';
 import Slider from '../slider/Slider';
 import useDiscordRpc from '../../hooks/useDiscordRpc';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 const PlayerBar = () => {
   const { t } = useTranslation();
@@ -236,6 +237,38 @@ const PlayerBar = () => {
 
   const { handleFavorite } = useFavorite();
   const { handleRating } = useRating();
+
+  useHotkeys(
+    'cmd+right',
+    (e: KeyboardEvent) => {
+      e.preventDefault();
+      handleSeekForward(true);
+    }
+  );
+
+  useHotkeys(
+    'cmd+left',
+    (e: KeyboardEvent) => {
+      e.preventDefault();
+      handleSeekBackward(true);  
+    }
+  );
+
+  useHotkeys(
+    'alt+right',
+    (e: KeyboardEvent) => {
+      e.preventDefault();
+      handleNextTrack(true);
+    }
+  );
+
+  useHotkeys(
+    'alt+left',
+    (e: KeyboardEvent) => {
+      e.preventDefault();
+      handlePrevTrack(true);
+    }
+  );
 
   return (
     <Player ref={playersRef} currentEntryList={currentEntryList} muted={muted}>
