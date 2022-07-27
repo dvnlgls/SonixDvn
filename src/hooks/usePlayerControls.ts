@@ -33,8 +33,8 @@ const usePlayerControls = (
 ) => {
   const dispatch = useAppDispatch();
 
-  const handleNextTrack = useCallback(() => {
-    if (playQueue[currentEntryList].length > 0) {
+  const handleNextTrack = useCallback((skipQueueLengthCheck = false) => {
+    if (playQueue[currentEntryList].length > 0 || skipQueueLengthCheck) {
       // If on the last track of the queue without repeat set as all, ignore
       if (
         playQueue.repeat !== 'all' &&
@@ -48,8 +48,8 @@ const usePlayerControls = (
     }
   }, [currentEntryList, dispatch, playQueue]);
 
-  const handlePrevTrack = useCallback(() => {
-    if (playQueue[currentEntryList].length > 0) {
+  const handlePrevTrack = useCallback((skipQueueLengthCheck = false) => {
+    if (playQueue[currentEntryList].length > 0 || skipQueueLengthCheck) {
       const { currentPlayer } = playQueue;
       const currentSeek =
         currentPlayer === 1
@@ -183,9 +183,9 @@ const usePlayerControls = (
     }, 250);
   }, [dispatch, playersRef, setCurrentTime]);
 
-  const handleSeekBackward = useCallback(() => {
+  const handleSeekBackward = useCallback((skipQueueLengthCheck = false) => {
     const seekBackwardInterval = Number(settings.getSync('seekBackwardInterval'));
-    if (playQueue[currentEntryList].length > 0) {
+    if (playQueue[currentEntryList].length > 0 || skipQueueLengthCheck) {
       if (playQueue.isFading) {
         if (playQueue.currentPlayer === 1) {
           playersRef.current.player2.audioEl.current.pause();
@@ -212,8 +212,9 @@ const usePlayerControls = (
     }
   }, [currentEntryList, playQueue, playersRef, setCurrentTime]);
 
-  const handleSeekForward = useCallback(() => {
-    if (playQueue[currentEntryList].length > 0) {
+  const handleSeekForward = useCallback((skipQueueLengthCheck = false) => {
+    
+    if (playQueue[currentEntryList].length > 0 || skipQueueLengthCheck) {
       const seekForwardInterval = Number(settings.getSync('seekForwardInterval'));
 
       if (playQueue.isFading) {
@@ -233,6 +234,7 @@ const usePlayerControls = (
         playersRef.current.player1.audioEl.current.currentTime = newTime;
         setCurrentTime(newTime);
         ipcRenderer.send('seeked', newTime * 1000000);
+        
       } else {
         const check = playersRef.current.player2.audioEl.current.currentTime + seekForwardInterval;
         const songDuration = playersRef.current.player2.audioEl.current.duration;

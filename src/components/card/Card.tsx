@@ -17,10 +17,10 @@ import {
   LazyCardImg,
   Overlay,
   PlayOverlayButton,
-  FavoriteOverlayButton,
-  AppendOverlayButton,
+  // FavoriteOverlayButton,
+  // AppendOverlayButton,
+  // AppendNextOverlayButton,
   ModalViewOverlayButton,
-  AppendNextOverlayButton,
   CardImgWrapper,
   ImgPanel,
   CardTitleWrapper,
@@ -190,7 +190,7 @@ const Card = ({
                   }}
                 />
 
-                <CustomTooltip text={t('Add to queue (later)')} delay={1000}>
+                {/* <CustomTooltip text={t('Add to queue (later)')} delay={1000}>
                   <AppendOverlayButton
                     aria-label={t('Add to queue (later)')}
                     onClick={() => {
@@ -208,9 +208,9 @@ const Card = ({
                     size={size <= 160 ? 'xs' : 'sm'}
                     icon={<Icon icon="plus" />}
                   />
-                </CustomTooltip>
+                </CustomTooltip> */}
 
-                <CustomTooltip text={t('Add to queue (next)')} delay={1000}>
+                {/* <CustomTooltip text={t('Add to queue (next)')} delay={1000}>
                   <AppendNextOverlayButton
                     aria-label={t('Add to queue (next)')}
                     onClick={() => {
@@ -228,9 +228,9 @@ const Card = ({
                     size={size <= 160 ? 'xs' : 'sm'}
                     icon={<Icon icon="plus-circle" />}
                   />
-                </CustomTooltip>
+                </CustomTooltip> */}
 
-                {playClick.type !== 'playlist' && (
+                {/* {playClick.type !== 'playlist' && (
                   <CustomTooltip text={t('Toggle favorite')} delay={1000}>
                     <FavoriteOverlayButton
                       aria-label={
@@ -241,7 +241,8 @@ const Card = ({
                       icon={<Icon icon={rest.details.starred ? 'heart' : 'heart-o'} />}
                     />
                   </CustomTooltip>
-                )}
+                )} */}
+
                 {!rest.isModal && !noModalButton && (
                   <CustomTooltip text={t('View in modal')} delay={1000}>
                     <ModalViewOverlayButton

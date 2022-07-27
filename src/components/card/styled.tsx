@@ -216,8 +216,8 @@ const OverlayButton = styled(IconButton)`
 `;
 
 export const PlayOverlayButton = styled(OverlayButton)`
-  top: 50%;
-  left: 50%;
+  top: 85%;
+  left: 80%;
 `;
 
 export const AppendOverlayButton = styled(OverlayButton)`
