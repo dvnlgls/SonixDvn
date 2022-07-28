@@ -27,7 +27,7 @@
 
 > This is a modified version of Sonixd with support for hotkeys - Mac only. 
 
-### Current hotleys:
+### Current hotkeys:
 ```
 - Seek Forward: Cmd + Right
 - Seek Back: Cmd + Left
