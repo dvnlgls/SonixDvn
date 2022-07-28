@@ -1,6 +1,6 @@
 <img src="assets/icon.png" alt="sonixd logo" title="sonixd" align="right" height="60px" />
 
-# Sonixd
+# SonixDvn
 
   <a href="https://github.com/jeffvli/sonixd/releases">
     <img src="https://img.shields.io/github/v/release/jeffvli/sonixd?style=flat-square&color=blue"
@@ -22,6 +22,29 @@
     <img src="https://img.shields.io/matrix/sonixd:matrix.org?color=red&label=matrix&logo=matrix&logoColor=white"
     alt="Matrix">
   </a>
+
+&nbsp;
+
+> This is a modified version of Sonixd with support for hotkeys - Mac only. 
+
+### Current hotleys:
+```
+- Seek Forward: Cmd + Right
+- Seek Back: Cmd + Left
+- Next track: Alt + Right
+- Prev track: Alt + Left
+```
+
+### Other modifications:
+
+```
+- Album grid view cards: removed all buttons other than play and open in modal
+- Album grid view cards: moved position of play button to bottom left corner
+```
+
+<hr>
+
+## Original Readme:
 
 Sonixd is a cross-platform desktop client built for Subsonic-API (and Jellyfin in 0.8.0+) compatible music servers. This project was inspired by the many existing clients, but aimed to address a few key issues including <strong>scalability</strong>, <strong>library management</strong>, and <strong>user experience</strong>.
 
